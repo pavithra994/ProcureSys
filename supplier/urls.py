@@ -3,5 +3,5 @@ from.import views
 from django.conf.urls import url
 
 urlpatterns =[
-path('',views.home1, name='supplierhomepage'),
+path('',views.supplierhome, name='supplierhomepage'),
 ]
