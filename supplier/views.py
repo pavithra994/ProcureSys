@@ -25,3 +25,17 @@ def supplierinfoform(request):
     else:
         form = SupplierProductForm()
         return render(request, 'supplier/add_supplier.html',{'form':form})
+
+def edit_supplieritem(request, pk):
+    item = get_object_or_404(SupplierProductInfo, pk=pk)
+
+    if request.method == "POST":
+        form = SupplierProductForm(request.POST, instance=item)
+
+        if form.is_valid():
+            form.save()
+            return redirect('displaySupplierProducts')
+
+    else:
+        form = SupplierProductForm(instance=item)
+        return render(request, 'supplier/edit_supplieritem.html', {'form': form})
