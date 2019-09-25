@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8e772b9e-eac4-4f22-a9b4-4893d0875342" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ProcureSys.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProcureSys.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProcureSys/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProcureSys/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProcureSys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProcureSys/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supplier/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/supplier/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/supplier/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/supplier/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supplier/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/supplier/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supplier/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/supplier/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/supplier/supplier_productpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/supplier/supplier_productpage.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
@@ -24,11 +19,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/supplier/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="28" selection-start-column="28" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/supplier/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="7" column="78" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="78" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/supplier/supplier_productpage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="46" column="72" selection-start-line="46" selection-start-column="72" selection-end-line="46" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/supplier/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="46" column="73" selection-start-line="46" selection-start-column="73" selection-end-line="46" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -61,8 +83,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/supplier/views.py" />
-        <option value="$PROJECT_DIR$/supplier/urls.py" />
         <option value="$PROJECT_DIR$/templates/product/product.html" />
         <option value="$PROJECT_DIR$/templates/product/manage_product.html" />
         <option value="$PROJECT_DIR$/templates/product/add_product_type.html" />
@@ -74,17 +94,20 @@
         <option value="$PROJECT_DIR$/product/utils.py" />
         <option value="$PROJECT_DIR$/product/forms.py" />
         <option value="$PROJECT_DIR$/product/admin.py" />
-        <option value="$PROJECT_DIR$/templates/supplier/supplier_productpage.html" />
         <option value="$PROJECT_DIR$/product/models.py" />
         <option value="$PROJECT_DIR$/ProcureSys/settings.py" />
         <option value="$PROJECT_DIR$/supplier/models.py" />
+        <option value="$PROJECT_DIR$/supplier/urls.py" />
+        <option value="$PROJECT_DIR$/supplier/views.py" />
+        <option value="$PROJECT_DIR$/templates/supplier/supplier_productpage.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="960" />
-    <option name="height" value="1050" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="951" />
+    <option name="y" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1060" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -170,6 +193,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="ProcureSys.settings" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\Chathurindu\Documents\projects\django\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -202,23 +226,24 @@
       <workItem from="1568828926843" duration="2280000" />
       <workItem from="1568831223053" duration="31000" />
       <workItem from="1569379224698" duration="363000" />
-      <workItem from="1569379650698" duration="13241000" />
+      <workItem from="1569379650698" duration="13617000" />
+      <workItem from="1569395136581" duration="565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16802000" />
+    <option name="totallyTimeSpent" value="17743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14697987" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10469799" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3289855" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -227,7 +252,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32753623" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32753623" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="Full Stack Tools" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -249,13 +274,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProcureSys/wsgi.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supplier/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/product/product.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -300,13 +318,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../projects/django/src/ecommerce/users/models.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supplier/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ProcureSys/urls.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -421,27 +432,10 @@
     <entry file="file://$PROJECT_DIR$/templates/supplier/supplier_homepage.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/supplier/supplier_productpage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../MJsystem/src/inventory/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/product/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -456,6 +450,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="28" selection-start-column="28" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/product/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supplier/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="78" selection-start-line="7" selection-start-column="63" selection-end-line="7" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/supplier/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="46" column="73" selection-start-line="46" selection-start-column="73" selection-end-line="46" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/supplier/supplier_productpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="46" column="72" selection-start-line="46" selection-start-column="72" selection-end-line="46" selection-end-column="72" />
         </state>
       </provider>
     </entry>
