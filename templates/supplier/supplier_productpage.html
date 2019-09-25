@@ -22,8 +22,7 @@
 
                   <tr>
                     <th>No</th>
-                    <th>Product No</th>
-                    <th>Product Name</th>
+                    <th>Product Type</th>
                     <th>Supplier Name</th>
                     <th>Qty</th>
                     <th>Amount (Rs.)</th>
@@ -38,8 +37,7 @@
                 {% for item in info %}
                     <tr>
                     <td>{{ item.pk }}</td>
-                    <td>{{ item.Product_id }}</td>
-                    <td>{{ item.Product_Name }}</td>
+                    <td>{{ item.Product_type }}</td>
                     <td>{{ item.Supplier_Name}}</td>
                     <td>{{ item.Qty}}</td>
                     <td>{{ item.Amount }}</td>
