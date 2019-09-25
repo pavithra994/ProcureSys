@@ -39,3 +39,10 @@ def edit_supplieritem(request, pk):
     else:
         form = SupplierProductForm(instance=item)
         return render(request, 'supplier/edit_supplieritem.html', {'form': form})
+
+def delete_supplieritem(request, pk):
+    SupplierProductInfo.objects.filter(pk=pk).delete()
+
+    info = SupplierProductInfo.objects.all()
+    context = {'info': info}
+    return render(request,'supplier/supplier_productpage.html',context)

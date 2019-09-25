@@ -46,7 +46,7 @@
                     <td>{{ item.Order_date }}</td>
                     <td>{{ item.Status}}</td>
                     <td><a href="{% url 'edit_supplieritem' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
-                    <td><a href="" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+                    <td><a href="{% url 'delete_supplieritem' item.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
                   </tr>
 
                 {% endfor %}
