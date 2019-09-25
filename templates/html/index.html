@@ -8,6 +8,9 @@ License: You must have a valid license purchased only from themeforest to legall
 <html lang="en">
 
 <head>
+
+    {% load static %}
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Pinkman I Developer-friendly Admin Dashboard UI framework</title>
@@ -16,13 +19,13 @@ License: You must have a valid license purchased only from themeforest to legall
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-	
-	<!-- Lightgallery CSS -->
-    <link href="dist/css/lightgallery.css" rel="stylesheet" type="text/css">
 
-    <!-- Custom CSS -->
-    <link href="dist/css/style.css" rel="stylesheet" type="text/css">
-
+{#	<!-- Lightgallery CSS -->#}
+{#    <link href="dist/css/lightgallery.css" rel="stylesheet" type="text/css">#}
+{##}
+{#    <!-- Custom CSS -->#}
+{#    <link href="dist/css/style.css" rel="stylesheet" type="text/css">#}
+    {%  include 'base/css.html' %}
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -789,27 +792,29 @@ License: You must have a valid license purchased only from themeforest to legall
     </div>
     <!-- /HK Wrapper -->
 	
-    <!-- jQuery -->
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
+{#    <!-- jQuery -->#}
+{#    <script src="vendors/jquery/dist/jquery.min.js"></script>#}
+{##}
+{#    <!-- Bootstrap Core JavaScript -->#}
+{#    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>#}
+{#    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>#}
+{##}
+{#	<!-- Owl JavaScript -->#}
+{#    <script src="vendors/owl.carousel/dist/owl.carousel.min.js"></script>#}
+{##}
+{#	<!-- FeatherIcons JavaScript -->#}
+{#    <script src="dist/js/feather.min.js"></script>#}
+{##}
+{#	<!-- Gallery JavaScript -->#}
+{#    <script src="vendors/lightgallery/dist/js/lightgallery-all.min.js"></script>#}
+{#    <script src="dist/js/froogaloop2.min.js"></script>#}
+{##}
+{#	<!-- Init JavaScript -->#}
+{#    <script src="dist/js/lightgallery-all.js"></script>#}
+{#    <script src="dist/js/landing-data.js"></script>#}
+{#    <script src="dist/js/init.js"></script>#}
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-    <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-	
-	<!-- Owl JavaScript -->
-    <script src="vendors/owl.carousel/dist/owl.carousel.min.js"></script>
-	
-	<!-- FeatherIcons JavaScript -->
-    <script src="dist/js/feather.min.js"></script>
-	
-	<!-- Gallery JavaScript -->
-    <script src="vendors/lightgallery/dist/js/lightgallery-all.min.js"></script>
-    <script src="dist/js/froogaloop2.min.js"></script>
-    
-	<!-- Init JavaScript -->
-    <script src="dist/js/lightgallery-all.js"></script>
-    <script src="dist/js/landing-data.js"></script>
-    <script src="dist/js/init.js"></script>
+    {% include 'base/js.html' %}
 	</body>
 
 </html>	

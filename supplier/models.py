@@ -4,9 +4,9 @@ from django.db import models
 
 class SupplierProductInfo(models.Model):
     Status = (
-        ('available', 'Available'),
-        ('lessStock', 'Less Amount of Stock'),
-        ('outOfStock', 'Out of Stock')
+        ('Available', 'Available'),
+        ('Less amount of Stock', 'Less Amount of Stock'),
+        ('Out Of Stock', 'Out of Stock')
     )
 
     Product_id = models.CharField(max_length=6, blank=False,)
