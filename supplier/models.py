@@ -11,12 +11,16 @@ class SupplierProductInfo(models.Model):
     Product_type = models.CharField(max_length=100)
     Supplier_Name = models.CharField(max_length=100)
     Qty = models.IntegerField()
-    Amount = models.CharField(max_length=50)
+    Amount = models.FloatField()
     Order_date = models.DateTimeField(auto_now=True)
     Status = models.CharField(max_length=50, choices=Status, default='Available')
 
     def __str__(self):
         return format(self.Supplier_Name)
+
+    @property
+    def net_price_item(self):
+        return self.Amount * self.Qty
 
     # def __str__(self):
     #     return 'Product_id: {0} Product_Name:{1} Supplier_Name:{2} Qty:{3}  Amount:{4} Order_date:{5} Status:{6}'.format(
