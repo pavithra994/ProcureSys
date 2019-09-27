@@ -15,4 +15,9 @@ urlpatterns = [
 
     path('test/', include('product.urls')),
 
+    path('',views.home,name='home'),
+    path('login/',login_page,name='login'),
+    path('dashbotharukaard/',views.dashboard, name='dashboard'),
+    path('supplier/',include('supplier.urls')),
+    path('product/', include('product.urls')),
 ]
