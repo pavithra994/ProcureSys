@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 def home(request):
-    return render(request, "html/index.html", {})
+    return redirect('dashboard')
 
 
 def login(request):
@@ -10,4 +10,6 @@ def login(request):
 
 
 def dashboard(request):
-    return render(request, "html/dashboard.html", {})
+    if request.user.is_authenticated:
+        return render(request, "html/dashboard.html", {})
+    return redirect('login')
