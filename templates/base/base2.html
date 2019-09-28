@@ -48,7 +48,7 @@ License: You must have a valid license purchased only from themeforest to legall
                     </li>
                     <li class="nav-item dropdown show-on-hover">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Pages
+								Order Request
 							</a>
                         <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                             <div class="sub-dropdown-menu show-on-hover">
@@ -98,8 +98,8 @@ License: You must have a valid license purchased only from themeforest to legall
                     </li>
                     <li class="nav-item dropdown show-on-hover">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								User interface
-							</a>
+                                        Payments
+    							</a>
                         <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                             <div class="sub-dropdown-menu show-on-hover">
                                 <a href="#" class="dropdown-toggle dropdown-item">Components</a>
@@ -187,7 +187,7 @@ License: You must have a valid license purchased only from themeforest to legall
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="documentation.html">Documentation</a>
+                        <a class="nav-link" href="documentation.html">Purchase History </a>
                     </li>
                 </ul>
                 <form class="navbar-search-alt">
@@ -306,7 +306,7 @@ License: You must have a valid license purchased only from themeforest to legall
                                 <span class="badge badge-success badge-indicator"></span>
                             </div>
                             <div class="media-body">
-                                <span>Madelyn Shane<i class="zmdi zmdi-chevron-down"></i></span>
+                                <span>{{ request.user.email }}<i class="zmdi zmdi-chevron-down"></i></span>
                             </div>
                         </div>
                     </a>
@@ -325,7 +325,7 @@ License: You must have a valid license purchased only from themeforest to legall
                             </div>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
+                        <a class="dropdown-item" href="/logout"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
                     </div>
                 </li>
             </ul>
