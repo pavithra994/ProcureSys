@@ -24,7 +24,7 @@ $(function() {
 			markerStyle: {
 				initial: {
 							r: 5,
-							'fill': '#f68daf',
+							'fill': '#633d32',
 							'fill-opacity':1,
 							'stroke': '#fff',
 							'stroke-width' : 2,
@@ -32,7 +32,7 @@ $(function() {
 						},
 				hover: {
 					r: 5,
-					'fill': '#f68daf',
+					'fill': '#633d32',
 					'fill-opacity':1,
 					'stroke': '#fff',
 					'stroke-width' : 2,
@@ -124,7 +124,7 @@ $(function() {
 		backgroundColor: 'transparent',
 		markerStyle: {
 			initial: {
-				fill: '#f68daf',
+				fill: '#633d32',
 				r: 5,
 				'fill-opacity':1,
 				'stroke': '#fff',
@@ -132,7 +132,7 @@ $(function() {
 				'stroke-opacity': 1
 			},
 			hover: {
-				fill: '#f68daf',
+				fill: '#502f25',
 				r: 5,
 				'fill-opacity':1,
 				'stroke': '#fff',
@@ -140,7 +140,7 @@ $(function() {
 				'stroke-opacity': 1
 			},
 			selected: {
-				fill: '#f36493',
+				fill: '#44241b',
 				r: 5,
 				'fill-opacity':1,
 				'stroke': '#fff',
@@ -228,7 +228,7 @@ $(function() {
 				},
 				markerStyle: {
 					initial: {
-						fill: '#f68daf',
+						fill: '#633d32',
 						r: 5,
 						'fill-opacity':1,
 						'stroke': '#fff',
@@ -236,7 +236,7 @@ $(function() {
 						'stroke-opacity': 1
 					},
 					hover: {
-						fill: '#f68daf',
+						fill: '#633d32',
 						r: 5,
 						'fill-opacity':1,
 						'stroke': '#fff',
@@ -291,7 +291,7 @@ $(function() {
 		regionLabelStyle: {
 			initial: {
 			'font-family': 'inherit',
-			fill: '#f68daf'
+			fill: '#633d32'
 			},
 			hover: {
 			fill: '#324148'
@@ -344,7 +344,7 @@ $(function() {
 		],
 		markerStyle: {
 			initial: {
-				fill: '#f68daf',
+				fill: '#633d32',
 				r: 5,
 				'fill-opacity':1,
 				'stroke': '#fff',
@@ -352,7 +352,7 @@ $(function() {
 				'stroke-opacity': 1
 			},
 			hover: {
-				fill: '#f68daf',
+				fill: '#633d32',
 				r: 5,
 				'fill-opacity':1,
 				'stroke': '#fff',
@@ -371,7 +371,7 @@ $(function() {
 		series: {
 		  markers: [{
 			attribute: 'fill',
-			scale: ['#edf9fe', '#f68daf'],
+			scale: ['#edf9fe', '#633d32'],
 			normalizeFunction: 'polynomial',
 			values: [408, 512, 550, 781],
 			legend: {
@@ -395,8 +395,8 @@ $(function() {
 		  }],
 		  regions: [{
 			scale: {
-			  blue: '#f36493',
-			  teal: '#fabacf'
+			  blue: '#44241b',
+			  teal: '#6f483d'
 			},
 			attribute: 'fill',
 			values: {
