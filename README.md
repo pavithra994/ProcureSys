@@ -6,3 +6,6 @@ urls -
   
   
 python manage.py runserver
+
+superuser account
+-pavithra@email.com | 1234

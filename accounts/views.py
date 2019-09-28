@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, get_object_or_404
 from .forms import LoginForm
 from .models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
@@ -32,3 +32,8 @@ def login_page(request):
         'error': error,
     }
     return render(request, 'html/login.html', context)
+
+
+def log_out(request):
+    logout(request)
+    return HttpResponseRedirect('/')
