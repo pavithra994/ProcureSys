@@ -306,7 +306,13 @@ License: You must have a valid license purchased only from themeforest to legall
                                 <span class="badge badge-success badge-indicator"></span>
                             </div>
                             <div class="media-body">
-                                <span>{{ request.user.email }}<i class="zmdi zmdi-chevron-down"></i></span>
+                                {% if request.user.is_admin %}
+                                    <span>SuperUser - {{ request.user.email }}<i class="zmdi zmdi-chevron-down"></i></span>
+
+                                {% elif request.user.is_staff %}
+                                     <span>{{ request.user.staff.name }}<i class="zmdi zmdi-chevron-down"></i></span>
+
+                                {% endif %}
                             </div>
                         </div>
                     </a>
