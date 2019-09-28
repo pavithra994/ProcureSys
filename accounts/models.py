@@ -44,6 +44,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     def has_module_perms(self, app_label):
         return True
 
+    def get_email(self):
+        return self.email
+
     @property
     def is_admin(self):
         return self.admin
