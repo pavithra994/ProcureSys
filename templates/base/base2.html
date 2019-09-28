@@ -306,7 +306,13 @@ License: You must have a valid license purchased only from themeforest to legall
                                 <span class="badge badge-success badge-indicator"></span>
                             </div>
                             <div class="media-body">
-                                <span>{{ request.user.email }}<i class="zmdi zmdi-chevron-down"></i></span>
+                                {% if request.user.is_admin %}
+                                    <span>SuperUser - {{ request.user.email }}<i class="zmdi zmdi-chevron-down"></i></span>
+
+                                {% elif request.user.is_staff %}
+                                     <span>{{ request.user.staff.name }}<i class="zmdi zmdi-chevron-down"></i></span>
+
+                                {% endif %}
                             </div>
                         </div>
                     </a>
@@ -315,6 +321,11 @@ License: You must have a valid license purchased only from themeforest to legall
                         <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-card"></i><span>My balance</span></a>
                         <a class="dropdown-item" href="inbox.html"><i class="dropdown-icon zmdi zmdi-email"></i><span>Inbox</span></a>
                         <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Settings</span></a>
+                        <div class="dropdown-divider"></div>
+                        {% if request.user.is_admin %}
+                            <a class="dropdown-item" href="/staff/add_account"><i class="dropdown-icon zmdi zmdi-account"></i><span>Add Staff Member</span></a>
+
+                        {% endif %}
                         <div class="dropdown-divider"></div>
                         <div class="sub-dropdown-menu show-on-hover">
                             <a href="#" class="dropdown-toggle dropdown-item no-caret"><i class="zmdi zmdi-check text-success"></i>Online</a>
@@ -389,7 +400,7 @@ License: You must have a valid license purchased only from themeforest to legall
                 <footer class="footer">
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
-                            <p>Pampered by<a href="https://hencework.com/" class="text-dark" target="_blank">Hencework</a> © 2019</p>
+                            <p>Implement by SLIIT Group 51 © 2019</p>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <p class="d-inline-block">Follow us</p>
