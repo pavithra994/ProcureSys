@@ -42,8 +42,8 @@ License: You must have a valid license purchased only from themeforest to legall
 							</a>
                         <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                             {% if request.user.is_staff %}
-                                <a class="dropdown-item" href="#">Staff Handling</a>
-                                <a class="dropdown-item" href="#">Supplier Handling</a>
+                                <a class="dropdown-item" href="/staff">Staff Handling</a>
+                                <a class="dropdown-item" href="/supplier">Supplier Handling</a>
                                 <a class="dropdown-item active" href="#">Site Handling</a>
                             {% elif request.user.is_supplier %}
                                 <a class="dropdown-item active" href="#">Product Handling</a>
