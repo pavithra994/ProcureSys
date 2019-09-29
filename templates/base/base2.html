@@ -10,7 +10,7 @@ License: You must have a valid license purchased only from themeforest to legall
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Pinkman I Statistics Dashboard</title>
+    <title>ProcueSys Dashboard</title>
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework" />
     {%  load static %}
 
@@ -307,10 +307,13 @@ License: You must have a valid license purchased only from themeforest to legall
                             </div>
                             <div class="media-body">
                                 {% if request.user.is_admin %}
-                                    <span>SuperUser - {{ request.user.email }}<i class="zmdi zmdi-chevron-down"></i></span>
+                                    <span>{{ request.user.email }}<i class="zmdi zmdi-chevron-down"></i></span>
 
                                 {% elif request.user.is_staff %}
                                      <span>{{ request.user.staff.name }}<i class="zmdi zmdi-chevron-down"></i></span>
+                                {% elif request.user.is_supplier %}
+                                     <span>{{ request.user.supplier.name }}<i class="zmdi zmdi-chevron-down"></i></span>
+
 
                                 {% endif %}
                             </div>
@@ -326,6 +329,10 @@ License: You must have a valid license purchased only from themeforest to legall
                             <a class="dropdown-item" href="/staff/add_account"><i class="dropdown-icon zmdi zmdi-account"></i><span>Add Staff Member</span></a>
 
                         {% endif %}
+                        {% if request.user.is_staff %}
+                            <a class="dropdown-item" href="/supplier/add_account"><i class="dropdown-icon zmdi zmdi-account"></i><span>Add Supplier</span></a>
+                        {% endif %}
+
                         <div class="dropdown-divider"></div>
                         <div class="sub-dropdown-menu show-on-hover">
                             <a href="#" class="dropdown-toggle dropdown-item no-caret"><i class="zmdi zmdi-check text-success"></i>Online</a>
