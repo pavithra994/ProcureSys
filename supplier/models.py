@@ -1,4 +1,5 @@
 from django.db import models
+from accounts.models import User
 from django.db.models import Sum
 # Create your models here.
 
@@ -14,7 +15,7 @@ class SupplierProductInfo(models.Model):
     )
 
     Product_type = models.CharField(max_length=100)
-    Supplier_Name = models.CharField(max_length=100)
+    Supplier_Name = models.CharField(max_length=100) # change this as ForeignKey(Supplier)
     Qty = models.IntegerField()
     Amount = models.FloatField()
     Order_date = models.DateTimeField(auto_now=True)
@@ -43,3 +44,8 @@ class SupplierProductInfo(models.Model):
     #         'total' : total,
     #     }
     # hello
+
+
+class Supplier(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    name = models.CharField(max_length=255)

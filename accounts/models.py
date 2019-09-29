@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, Permis
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, password=None,is_active=True, is_admin=False,is_staff=False):
+    def create_user(self, email, password=None,is_active=True, is_admin=False,is_staff=False,is_supplier=False):
         if not email:
             raise ValueError("User must have an email")
         if not password:
@@ -12,7 +12,8 @@ class UserManager(BaseUserManager):
         user_obj = self.model(email=self.normalize_email(email))
         user_obj.active = is_active
         user_obj.admin = is_admin
-        user_obj.staff = is_staff
+        user_obj.Staff = is_staff
+        user_obj.Supplier = is_supplier
         user_obj.set_password(password)
         user_obj.save(using=self._db)
         return user_obj
@@ -25,13 +26,18 @@ class UserManager(BaseUserManager):
         staffuser= self.create_user(email,password=password,is_staff=True)
         return staffuser
 
+    def create_supplieruser(self,email,password=None):
+        supplieruser = self.create_user(email,password=password,is_supplier=True)
+        return supplieruser
+
 
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
-    staff = models.BooleanField(default=False)
+    Staff = models.BooleanField(default=False)
+    Supplier = models.BooleanField(default=False)
     admin = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
@@ -52,4 +58,8 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.admin
     @property
     def is_staff(self):
-        return self.staff
+        return self.Staff
+
+    @property
+    def is_supplier(self):
+        return self.Supplier

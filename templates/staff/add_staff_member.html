@@ -1,0 +1,96 @@
+{% extends 'base/base2.html' %}
+{% load static %}
+{% block dashboard-body %}
+
+    <div class="hk-pg-wrapper" style="min-height: 590px;">
+             <!-- Container -->
+            <div class="container">
+                <!-- Title -->
+                <div class="hk-pg-header">
+                    <h4 class="hk-pg-title"><span class="pg-title-icon"><span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-left"><line x1="17" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="17" y1="18" x2="3" y2="18"></line></svg></span></span>Add New Staff Member</h4>
+                </div>
+                <!-- /Title -->
+
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-xl-12">
+
+                        <section class="hk-sec-wrapper">
+                            <h5 class="hk-sec-title">Create ProcueSys Account</h5>
+                            <p class="mb-25">Enter valid details only</p>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <form method="post">
+                                                                            {% csrf_token %}
+
+                                        <div class="form-group row">
+                                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                            <div class="col-sm-10">
+{#                                                <input type="email" class="form-control" id="inputEmail3" placeholder="Pavithra@email.com">#}
+                                            {{ form.email }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="full_name" class="col-sm-2 col-form-label">Full Name</label>
+                                            <div class="col-sm-10">
+{#                                                <input type="text" class="form-control" id="inputEmail3" placeholder="Pavithra">#}
+                                                {{ form.full_name }}
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-sm-2 pt-0">Position</label>
+                                            <div class="col-sm-10">
+                                                <div class="custom-control custom-checkbox mb-15">
+{#                                                    <input class="custom-control-input" id="chkbox_horizontal" type="checkbox" checked="">#}
+                                                    {{ form.is_ProcueStaff }}
+                                                    <label class="custom-control-label" for="chkbox_horizontal1">Procuement Staff</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox mb-15">
+{#                                                    <input class="custom-control-input" id="chkbox_horizontal" type="checkbox" checked="">#}
+                                                    {{ form.is_HRStaff }}
+                                                    <label class="custom-control-label" for="chkbox_horizontal2">HR Staff</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox mb-15">
+{#                                                    <input class="custom-control-input" id="chkbox_horizontal" type="checkbox" checked="">#}
+                                                    {{ form.is_DeliveryStaff }}
+                                                    <label class="custom-control-label" for="chkbox_horizontal3">Delivery Staff</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox mb-15">
+{#                                                    <input class="custom-control-input" id="chkbox_horizontal" type="checkbox" checked="">#}
+                                                    {{ form.is_Accountant }}
+                                                    <label class="custom-control-label" for="chkbox_horizontal4">Accountant</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox mb-15">
+{#                                                    <input class="custom-control-input" id="chkbox_horizontal" type="checkbox" checked="">#}
+                                                    {{ form.is_SiteManager }}
+                                                    <label class="custom-control-label" for="chkbox_horizontal5">Site Manager</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox mb-15">
+{#                                                    <input class="custom-control-input" id="chkbox_horizontal" type="checkbox" checked="">#}
+                                                    {{ form.is_Inspector }}
+                                                    <label class="custom-control-label" for="chkbox_horizontal6">Inspector</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-0">
+                                            <div class="col-sm-10">
+                                                <button type="submit" class="btn btn-primary">ADD</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+                <!-- /Row -->
+            </div>
+            <!-- /Container -->
+
+        </div>
+
+{% endblock %}

@@ -11,3 +11,18 @@ class SupplierProductForm(forms.ModelForm):
         instance = getattr(self, 'instance', None)
         if instance and instance.id:
             self.fields['Supplier_Name'].widget.attrs['readonly'] = True
+
+class AddSupplierForm(forms.Form):
+    email = forms.EmailField(label='Email', widget=forms.EmailInput(
+                                                            attrs={
+                                                                'class': 'form-control',
+                                                                'autofocus': 'autofocus',
+
+                                                            }
+                                                    ))
+    full_name = forms.CharField(label='full_name', widget=forms.TextInput(attrs={
+                                                                'class': 'form-control',
+                                                                'autofocus': 'autofocus',
+
+                                                            }
+                                                    ))
