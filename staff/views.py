@@ -6,6 +6,14 @@ from .models import Staff
 # Create your views here.
 
 
+def staff_dashboard(request):
+    staff_qs = Staff.objects.all()
+    context = {
+        "staff_qs":staff_qs,
+    }
+    return render(request,"staff/staff_dashboard.html",context)
+
+
 def create_new(request):
     if request.method == 'POST':
         add_staff_form = AddStaffForm(request.POST)

@@ -41,9 +41,16 @@ License: You must have a valid license purchased only from themeforest to legall
 								Dashboard
 							</a>
                         <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                            <a class="dropdown-item" href="dashboard1.html">CRM</a>
-							<a class="dropdown-item" href="dashboard2.html">Project</a>
-							<a class="dropdown-item active" href="dashboard3.html">Statistics</a>
+                            {% if request.user.is_staff %}
+                                <a class="dropdown-item" href="#">Staff Handling</a>
+                                <a class="dropdown-item" href="#">Supplier Handling</a>
+                                <a class="dropdown-item active" href="#">Site Handling</a>
+                            {% elif request.user.is_supplier %}
+                                <a class="dropdown-item active" href="#">Product Handling</a>
+
+                            {% else %}
+
+                            {% endif %}
                         </div>
                     </li>
                     <li class="nav-item dropdown show-on-hover">

@@ -14,3 +14,20 @@ class Staff(models.Model):
     is_SiteManager = models.BooleanField(default=False)
     is_Inspector = models.BooleanField(default=False)
 
+    def get_position(self):
+        position = ""
+        if self.is_ProcueStaff:
+            position += " Procurement Staff,"
+        if self.is_HRStaff:
+            position += " HR Staff,"
+        if self.is_DeliveryStaff:
+            position += " Delivery Staff,"
+        if self.is_Accountant:
+            position += " Accountant,"
+        if self.is_SiteManager:
+            position += " SiteManager,"
+        if self.is_Inspector:
+            position += " Inspector,"
+
+        return position.rstrip(',').lstrip()
+
