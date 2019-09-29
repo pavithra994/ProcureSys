@@ -1,13 +1,70 @@
-{%  extends 'base/base2.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    {% load static %}
-</head>
+{% extends 'base/base2.html' %}
+{% load static %}
 {% block dashboard-body %}
-<h1> Welcome to Supplier Home Page......</h1>
+ <!-- Container -->
+            <div class="container">
 
+                <!-- Title -->
+                <div class="hk-pg-header">
+                    <h4 class="hk-pg-title">Supplier Management</h4>
+                </div>
+                <!-- /Title -->
+
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <section class="hk-sec-wrapper">
+                            <h5 class="hk-sec-title">All Suppliers</h5>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="table-wrap">
+                                        <table id="datable_1" class="table table-hover w-100 display pb-30">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Email</th>
+                                                    <th>Age</th>
+                                                    <th>Start date</th>
+                                                    <th>Salary</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for supplier in supplier_qs %}
+                                                    <tr>
+                                                        <td>{{ supplier.name }}</td>
+                                                        <td>
+                                                            Supplier
+                                                        </td>
+                                                        <td>{{ supplier.user.email }}</td>
+                                                        <td>61</td>
+                                                        <td>2011/04/25</td>
+                                                        <td>$320,800</td>
+                                                    </tr>
+                                                {% endfor %}
+
+
+
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Position</th>
+                                                    <th>Office</th>
+                                                    <th>Age</th>
+                                                    <th>Start date</th>
+                                                    <th>Salary</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <!-- /Row -->
+
+            </div>
+            <!-- /Container -->
 {% endblock %}
-</html>
