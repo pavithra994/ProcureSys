@@ -45,3 +45,20 @@ def delete_supplieritem(request, pk):
     info = SupplierProductInfo.objects.all()
     context = {'info': info}
     return render(request, 'supplier/supplier_productpage.html', context)
+
+def add_new_supplier(request):
+    if request.method == 'POST':
+        add_supplier_form = AddSupplierForm(request.POST)
+        if add_supplier_form.is_valid():
+            email = add_supplier_form.cleaned_data.get('email')
+            full_name = add_supplier_form.cleaned_data.get('full_name')
+
+            user_obj = User.objects.create_supplieruser(email,'1234')
+            Supplier.objects.create(user=user_obj,name=full_name)
+            return redirect('dashboard')
+    else:
+        add_supplier_form = AddSupplierForm()
+    context = {
+        'form': add_supplier_form,
+    }
+    return render(request, "supplier/add_new_supplier.html", context)

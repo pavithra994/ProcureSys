@@ -1,4 +1,5 @@
 from django.db import models
+from accounts.models import User
 # Create your models here.
 
 class SupplierProductInfo(models.Model):
@@ -25,3 +26,8 @@ class SupplierProductInfo(models.Model):
     # def __str__(self):
     #     return 'Product_id: {0} Product_Name:{1} Supplier_Name:{2} Qty:{3}  Amount:{4} Order_date:{5} Status:{6}'.format(
     #         self.Product_id, self.Product_Name, self.Supplier_Name, self.Qty, self.Amount, self.Order_date, self.Status)
+
+
+class Supplier(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    name = models.CharField(max_length=255)
