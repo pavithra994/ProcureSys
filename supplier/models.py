@@ -10,7 +10,7 @@ class SupplierProductInfo(models.Model):
     )
 
     Product_type = models.CharField(max_length=100)
-    Supplier_Name = models.CharField(max_length=100)
+    Supplier_Name = models.CharField(max_length=100) # change this as ForeignKey(Supplier)
     Qty = models.IntegerField()
     Amount = models.FloatField()
     Order_date = models.DateTimeField(auto_now=True)
