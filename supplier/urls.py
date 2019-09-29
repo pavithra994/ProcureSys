@@ -6,6 +6,7 @@ urlpatterns =[
 path('',views.supplierhome, name='supplierhomepage'),
 path('display/',views.displaySupplierProducts, name='displaySupplierProducts'),
 path('display/addsupplierinfo/', views.supplierinfoform, name='addsupplierinfo'),
+path('analysis/', views.supplieritemalysis, name='supplieritemalysis'),
 
 url(r'^edit_supplieritem/(?P<pk>\d+)' , views.edit_supplieritem, name='edit_supplieritem'),
 url(r'^delete_supplieritem/(?P<pk>\d+)' , views.delete_supplieritem, name='delete_supplieritem'),

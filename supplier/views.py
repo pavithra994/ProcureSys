@@ -10,8 +10,21 @@ def supplierhome(request):
 
 def displaySupplierProducts(request):
     info = SupplierProductInfo.objects.all()
+    for i in info:
+        if i.Qty == 0:
+            i.Status = "Out of Stock"
+            i.save()
+        else:
+            i.Status = "Available"
+            i.save()
+    queryset = SupplierProductInfo.objects.all()
+    total = 0
+    for instance in queryset:
+        total += instance.net_price_item
     context = {'info': info,
+               'total': total,
                'dashboard_dir': 'SupplierProductInfo'}
+
     return render(request, 'supplier/supplier_productpage.html',context)
 
 def supplierinfoform(request):
@@ -45,3 +58,47 @@ def delete_supplieritem(request, pk):
     info = SupplierProductInfo.objects.all()
     context = {'info': info}
     return render(request, 'supplier/supplier_productpage.html', context)
+
+def supplieritemalysis(request):
+    qs1 = SupplierProductInfo.objects.all()
+    qs2 = SupplierProductInfo.objects.all().filter(Status='Available')
+    qs3 = SupplierProductInfo.objects.all().filter(Status='Reserved')
+    qs4 = SupplierProductInfo.objects.all().filter(Status='Out_Of_Stock')
+
+    numberOfItems = qs1.count()
+    numberOfAvaliable = qs2.count()
+    numberOfReserved= qs3.count()
+    numberOfOutofstock = qs4.count()
+
+    net_price_item = 0
+    for i in qs1:
+        net_price_item += i.net_price_item
+
+    net_price_available_item = 0
+    for i in qs2:
+        net_price_available_item += i.net_price_item
+
+    net_price_Reserved_item = 0
+    for i in qs3:
+        net_price_Reserved_item += i.net_price_item
+
+    net_price_outofstock_item = 0
+    for i in qs4:
+        net_price_outofstock_item += i.net_price_item
+
+    context ={
+        'numberOfItems' : numberOfItems,
+        'numberOfAvaliable' : numberOfAvaliable,
+        'numberOfReserved' : numberOfReserved,
+        'numberOfOutofstock': numberOfOutofstock,
+        'net_price_item' : net_price_item,
+        'net_price_available_item': net_price_available_item,
+        'net_price_Reserved_item': net_price_Reserved_item,
+        'net_price_outofstock_item': net_price_outofstock_item,
+    }
+
+    return render(request, 'supplier/analysis.html', context)
+
+def get_queryset(Status, Qty):
+   if Qty == 0:
+    return Status == 'Out_Of_Stock'
