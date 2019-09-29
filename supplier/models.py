@@ -42,3 +42,4 @@ class SupplierProductInfo(models.Model):
     #     context={
     #         'total' : total,
     #     }
+    # hello
