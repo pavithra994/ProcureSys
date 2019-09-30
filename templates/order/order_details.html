@@ -13,10 +13,14 @@
             <tr>
               <th scope="col">Id</th>
               <th scope="col">Product and Quantity</th>
+                <th scope="col">Company Name</th>
+                <th scope="col">Supplier Name</th>
+                <th scope="col">Delivery Address</th>
               <th scope="col">Amount</th>
               <th scope="col">Date</th>
-{#              <th scope="col">Description</th>#}
+              <th scope="col">Description</th>
               <th scope="col">Status</th>
+                <th scope="col">Approve</th>
               <th scope="col"></th>
             </tr>
           </thead>
@@ -25,11 +29,15 @@
             <tr>
               <th scope="row">{{ item.slug }}</th>
               <td>{{item.get_tender_values}}</td>
+              <td>{{ item.company_name }}</td>
+            <td>{{ item.supplier_name }}</td>
+                <td>{{ item.delivery_address }}</td>
               <td>{{ item.amount }}</td>
               <td>{{ item.date }}</td>
-{#              <td>{{ item.description }}</td>#}
+              <td>{{ item.description }}</td>
               <td>{{ item.Status }}</td>
-                {% if item.amount > 100000 %}
+              <td>{{ item.approval }}</td>
+                {% if item.amount > 100000 and item.approval == "Pending" %}
               <td><a href="{% url 'approval_request' item.pk  %}" onclick="disableBtn()" id="btn" class="btn btn-primary" role="button">Send Request For Approve</a></td>
                      <script>
                         function disableBtn(){

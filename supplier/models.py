@@ -9,6 +9,8 @@ class Supplier(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return format(self.name)
 
 class SupplierProductInfo(models.Model):
 
@@ -30,8 +32,8 @@ class SupplierProductInfo(models.Model):
     Order_date = models.DateTimeField(auto_now=True)
     Status = models.CharField(max_length=50, choices=Status, default='Available')
 
-    # def __str__(self):
-    #     return format(self.Supplier_Name)
+    def __str__(self):
+        return format(self.supplier)
 
     @property
     def net_price_item(self):
