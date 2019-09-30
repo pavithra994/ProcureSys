@@ -19,6 +19,10 @@ class Product(models.Model):
     def __str__(self):
         return format(self.slug)
 
+class ProductOrder(models.Model):
+    product = models.OneToOneField(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+
 
 def jewelry_presave_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
