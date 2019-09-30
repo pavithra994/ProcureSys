@@ -1,0 +1,210 @@
+{% extends 'base/base2.html' %}
+{% load static %}
+{% block dashboard-body %}
+ <!-- Container -->
+            <div class="container">
+
+                <!-- Title -->
+                <div class="hk-pg-header">
+                    <h4 class="hk-pg-title">Product Management</h4>
+                </div>
+                <!-- /Title -->
+
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-xl-12">
+                    {% if request.user.is_supplier %}
+                        <section class="hk-sec-wrapper">
+                            <div class="row" style="padding: 10px">
+                                <div class="col-sm-12 col-md-6">
+                                    <h5 class="hk-sec-title">Products of yours</h5>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <a class="btn btn-dark" style="float: right" href="/supplier/add_product">Add Product</a>
+                                </div>
+
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="table-wrap">
+                                        <table id="datable_1" class="table table-hover w-100 display pb-30">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Description</th>
+                                                    <th>Quantity</th>
+                                                    <th>Amount</th>
+                                                    <th>Order date</th>
+                                                    <th>Status</th>
+                                                    <th>edit</th>
+                                                    <th>delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for product_sup in product_qs %}
+                                                    <tr>
+                                                        <td>{{ product_sup.product.productType.product_type }}</td>
+                                                        <td>
+                                                            {{ product_sup.product.description }}
+                                                        </td>
+                                                        <td>{{ product_sup.Qty }}</td>
+                                                        <td>{{ product_sup.Amount }}</td>
+                                                        <td>{{ product_sup.Order_date }}</td>
+                                                        <td>{{ product_sup.Status }}</td>
+                                                        <td><a href="{% url 'edit_supplieritem' product_sup.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
+                                                        <td><a href="{% url 'delete_supplieritem' product_sup.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+                                                    </tr>
+                                                {% endfor %}
+
+
+
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Description</th>
+                                                    <th>Quantity</th>
+                                                    <th>Amount</th>
+                                                    <th>Order date</th>
+                                                    <th>Status</th>
+                                                    <th>edit</th>
+                                                    <th>delete</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    {% endif %}
+                    </div>
+                <div class="col-xl-12">
+                        <section class="hk-sec-wrapper">
+                            <h5 class="hk-sec-title">All Products of suppliers</h5>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="table-wrap">
+                                        <table id="datable_2" class="table table-hover w-100 display pb-30">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Description</th>
+                                                    <th>Supplier</th>
+                                                    {% if request.user.is_staff %}
+                                                        <th>Quantity</th>
+                                                    {% endif %}
+                                                    <th>Amount</th>
+                                                    <th>Order date</th>
+                                                    <th>Status</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for product_sup in product_supplier_qs %}
+                                                    <tr>
+                                                        <td>{{ product_sup.product.productType.product_type }}</td>
+                                                        <td>
+                                                            {{ product_sup.product.description }}
+                                                        </td>
+                                                        <td>{{ product_sup.supplier.name }}</td>
+                                                        {% if request.user.is_staff %}
+                                                        <th>{{ product_sup.Qty }}</th>
+                                                        {% endif %}
+                                                        <td>{{ product_sup.Amount }}</td>
+                                                        <td>{{ product_sup.Order_date }}</td>
+                                                        <td>{{ product_sup.Status }}</td>
+
+                                                    </tr>
+                                                {% endfor %}
+
+
+
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Description</th>
+                                                    <th>Supplier</th>
+                                                    {% if request.user.is_staff %}
+                                                        <th>Quantity</th>
+                                                    {% endif %}
+                                                    <th>Amount</th>
+                                                    <th>Order date</th>
+                                                    <th>Status</th>
+
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                <div class="col-xl-12">
+                        <section class="hk-sec-wrapper">
+                            <h5 class="hk-sec-title">All Products Types</h5>
+                        <div class="row" style="padding: 10px">
+                                <div class="col-sm-12 col-md-6">
+                                    <h5 class="hk-sec-title">Products of yours</h5>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <a class="btn btn-dark" style="float: right" href="/product/addProduct/">Add Product</a>
+                                </div>
+
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="table-wrap">
+                                        <table id="datable_3" class="table table-hover w-100 display pb-30">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Description</th>
+                                                    <th>price per product</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for product in product_type_qs %}
+                                                    <tr>
+                                                        <td>{{ product.productType.product_type }}</td>
+                                                        <td>
+                                                            {{ product.description }}
+                                                        </td>
+                                                        <td>{{ product.price_per_product }}</td>
+                                                        <th><a href="{% url 'edit_product' product.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a></th>
+                                                    <th><a href="{% url 'delete_product' product.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a></th>
+
+
+                                                    </tr>
+                                                {% endfor %}
+
+
+
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Description</th>
+                                                    <th>price per product</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
+
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <!-- /Row -->
+
+            </div>
+            <!-- /Container -->
+{% endblock %}

@@ -13,28 +13,29 @@ $(document).ready(function() {
 
 		}
 	});
-    $('#datable_2').DataTable({ 
-		autoWidth: false,
-		lengthChange: false,
-		"bPaginate": false,
-		language: { search: "",searchPlaceholder: "Search" }
-	});
-	
-	/*Export DataTable*/
-	$('#datable_3').DataTable( {
-		dom: 'Bfrtip',
+
+	$('#datable_2').DataTable({
 		responsive: true,
-		language: { search: "",searchPlaceholder: "Search" },
-		"bPaginate": false,
-		"info":     false,
-		"bFilter":     false,
-		buttons: [
-			'copy', 'csv', 'excel', 'pdf', 'print'
-		],
-		"drawCallback": function () {
-			$('.dt-buttons > .btn').addClass('btn-outline-light btn-sm');
+		autoWidth: false,
+		search : {"caseInsensitive" : true},
+		language: { search: "",
+		searchPlaceholder: "Search",
+		sLengthMenu: "_MENU_items"
+
 		}
-	} );
+	});
+
+	$('#datable_3').DataTable({
+		responsive: true,
+		autoWidth: false,
+		search : {"caseInsensitive" : true},
+		language: { search: "",
+		searchPlaceholder: "Search",
+		sLengthMenu: "_MENU_items"
+
+		}
+	});
+
 	
 	var table = $('#datable_5').DataTable({
 		responsive: true,
