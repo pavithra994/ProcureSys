@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Edit Order</h2>
+  {% block dashboard-body %}
+
+    <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>Edit Order</div>
+        <div class="container">
+            <form method="POST">
+            {% csrf_token %}
+<br>
+            {% for field in form %}
+            <div class = "form-group row">
+                  <label for="id_{{ field.name }}" class="col-2 col-form-label">{{ field.label }}</label>
+                  <div class="col-10">{{ field }}</div>
+                </div>
+            {% endfor %}
+
+    <button type="submit" class="btn btn-primary" name="'button">Edit</button>
+    </form>
+        </div>
+
+          </div>
+   </div>
+{% endblock %}
+</div>
+
+</body>
+</html>
