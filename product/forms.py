@@ -13,13 +13,14 @@ class AddProductForm(forms.ModelForm):
     productType = forms.ModelChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),
                                         queryset=ProductType.objects.order_by('product_type'),
                                         empty_label="(Select Product Type)")
-    supplier     = forms.ModelChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),
-                                        queryset=SupplierProductInfo.objects.order_by('Supplier_Name'),
-                                        empty_label="(Select Supplier)")
+
+
     price_per_product = forms.CharField(
         widget=forms.NumberInput(attrs={'class': 'form-control'}))
     description = forms.CharField(
         widget=forms.Textarea(attrs={"class": "form-control", "placeholder": "Write your Content"}))
     class Meta:
         model = Product
-        fields = ('productType', 'price_per_product', 'supplier', 'description')
+        fields = ('productType', 'price_per_product', 'description')
+
+
