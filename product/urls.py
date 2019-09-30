@@ -3,7 +3,6 @@ from product import views
 from django.conf.urls import url
 
 urlpatterns =[
-    path('display/',views.display_products, name='display_products'),
     path('',views.product_details, name='product_details'),
     # path('display/',views.displaySupplierProducts, name='displaySupplierProducts'),
     path('addProductType/', views.add_product_types, name='addProductType'),

@@ -86,7 +86,7 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="table-wrap">
-                                        <table id="datable_1" class="table table-hover w-100 display pb-30">
+                                        <table id="datable_2" class="table table-hover w-100 display pb-30">
                                             <thead>
                                                 <tr>
                                                     <th>Product</th>
@@ -98,6 +98,7 @@
                                                     <th>Amount</th>
                                                     <th>Order date</th>
                                                     <th>Status</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -114,6 +115,7 @@
                                                         <td>{{ product_sup.Amount }}</td>
                                                         <td>{{ product_sup.Order_date }}</td>
                                                         <td>{{ product_sup.Status }}</td>
+
                                                     </tr>
                                                 {% endfor %}
 
@@ -131,6 +133,7 @@
                                                     <th>Amount</th>
                                                     <th>Order date</th>
                                                     <th>Status</th>
+
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -155,12 +158,14 @@
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="table-wrap">
-                                        <table id="datable_1" class="table table-hover w-100 display pb-30">
+                                        <table id="datable_3" class="table table-hover w-100 display pb-30">
                                             <thead>
                                                 <tr>
                                                     <th>Product</th>
                                                     <th>Description</th>
                                                     <th>price per product</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -171,6 +176,9 @@
                                                             {{ product.description }}
                                                         </td>
                                                         <td>{{ product.price_per_product }}</td>
+                                                        <th><a href="{% url 'edit_product' product.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a></th>
+                                                    <th><a href="{% url 'delete_product' product.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a></th>
+
 
                                                     </tr>
                                                 {% endfor %}
@@ -183,6 +191,8 @@
                                                     <th>Product</th>
                                                     <th>Description</th>
                                                     <th>price per product</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
 
                                                 </tr>
                                             </tfoot>

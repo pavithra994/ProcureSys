@@ -2,10 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from product.forms import *
 from supplier.models import SupplierProductInfo
 
-def display_products(request):
-    info = Product.objects.all()
-    context ={ 'info': info }
-    return render(request, 'product/product.html', context)
+
 
 def add_product_types(request):
     if request.method == 'POST':
