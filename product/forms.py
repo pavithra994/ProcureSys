@@ -2,19 +2,19 @@ from django import forms
 from product.models import *
 from supplier.models import SupplierProductInfo
 
-class AddProductTypeForm(forms.ModelForm):
-    product_type = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter new product type'}))
-
-    class Meta:
-        model = ProductType
-        fields = ['product_type']
+# class AddProductTypeForm(forms.ModelForm):
+#     product_type = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter new product type'}))
+#
+#     class Meta:
+#         model = ProductType
+#         fields = ['product_type']
 
 class AddProductForm(forms.ModelForm):
-    productType = forms.ModelChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),
-                                        queryset=ProductType.objects.order_by('product_type'),
-                                        empty_label="(Select Product Type)")
+    # productType = forms.ModelChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),
+    #                                     queryset=ProductType.objects.order_by('product_type'),
+    #                                     empty_label="(Select Product Type)")
 
-
+    # productType = forms.CharField()
     price_per_product = forms.CharField(
         widget=forms.NumberInput(attrs={'class': 'form-control'}))
     description = forms.CharField(

@@ -1,6 +1,6 @@
 from django import forms
 from order.models import *
-from product.models import ProductType
+from product.models import Product
 
 class OrderPlacementForm(forms.ModelForm):
     product_and_quantity = forms.ModelMultipleChoiceField(queryset=Tender.objects.all(),widget=forms.CheckboxSelectMultiple)
@@ -23,7 +23,7 @@ class OrderPlacementForm(forms.ModelForm):
 
 class AddTender(forms.ModelForm):
     products = forms.ModelChoiceField(widget=forms.Select(attrs={'class': 'form-control'}),
-                                         queryset=ProductType.objects.order_by('product_type'),
+                                         queryset=Product.objects.order_by('productType'),
                                          empty_label="(Select Product Type)")
     quantity = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'enter quantity'}))
 

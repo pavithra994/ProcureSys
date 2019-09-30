@@ -45,7 +45,7 @@
                                             <tbody>
                                                 {% for product_sup in product_qs %}
                                                     <tr>
-                                                        <td>{{ product_sup.product.productType.product_type }}</td>
+                                                        <td>{{ product_sup.product.productType }}</td>
                                                         <td>
                                                             {{ product_sup.product.description }}
                                                         </td>
@@ -104,7 +104,7 @@
                                             <tbody>
                                                 {% for product_sup in product_supplier_qs %}
                                                     <tr>
-                                                        <td>{{ product_sup.product.productType.product_type }}</td>
+                                                        <td>{{ product_sup.product.productType }}</td>
                                                         <td>
                                                             {{ product_sup.product.description }}
                                                         </td>
@@ -173,7 +173,7 @@
                                             <tbody>
                                                 {% for product in product_type_qs %}
                                                     <tr>
-                                                        <td>{{ product.productType.product_type }}</td>
+                                                        <td>{{ product.productType }}</td>
                                                         <td>
                                                             {{ product.description }}
                                                         </td>

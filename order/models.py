@@ -1,5 +1,5 @@
 from django.db import models
-from product.models import ProductType, ProductOrder
+from product.models import ProductOrder, Product
 from supplier.models import SupplierProductInfo
 from .utils import unique_slug_generator
 from django.db.models.signals import pre_save
@@ -7,7 +7,7 @@ from django.utils.timezone import datetime
 
 
 class Tender(models.Model):
-    products = models.ForeignKey(ProductType, on_delete=models.CASCADE)
+    products = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
     quantity = models.IntegerField()
 
     def __str__(self):
@@ -74,3 +74,6 @@ class Invoice(models.Model):
 
     def __str__(self):
         return 'Order ID: {0} Date:{1} Amount:{2} '.format(self.order_id, self.date, self.amount_due)
+
+
+
