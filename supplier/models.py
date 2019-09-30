@@ -1,7 +1,14 @@
 from django.db import models
 from accounts.models import User
+from product.models import Product
 from django.db.models import Sum
 # Create your models here.
+
+
+class Supplier(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    name = models.CharField(max_length=255)
+
 
 class SupplierProductInfo(models.Model):
 
@@ -14,15 +21,17 @@ class SupplierProductInfo(models.Model):
         ('Out_Of_Stock', 'Out of Stock')
     )
 
-    Product_type = models.CharField(max_length=100)
-    Supplier_Name = models.CharField(max_length=100) # change this as ForeignKey(Supplier)
+    # Product_type = models.CharField(max_length=100)
+    # Supplier_Name = models.CharField(max_length=100) # change this as ForeignKey(Supplier)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
     Qty = models.IntegerField()
     Amount = models.FloatField()
     Order_date = models.DateTimeField(auto_now=True)
     Status = models.CharField(max_length=50, choices=Status, default='Available')
 
-    def __str__(self):
-        return format(self.Supplier_Name)
+    # def __str__(self):
+    #     return format(self.Supplier_Name)
 
     @property
     def net_price_item(self):
@@ -46,6 +55,4 @@ class SupplierProductInfo(models.Model):
     # hello
 
 
-class Supplier(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    name = models.CharField(max_length=255)
+
