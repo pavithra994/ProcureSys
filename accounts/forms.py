@@ -14,3 +14,5 @@ class LoginForm(forms.Form):
                                                                 'autofocus': 'autofocus',
                                                             }
                                                     ))
+
+

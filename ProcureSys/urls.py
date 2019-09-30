@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
-from accounts.views import login_page
+from accounts.views import login_page, log_out
 from django.conf.urls import url
 from django.urls import path, include
 
@@ -24,8 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('',views.home,name='home'),
     path('login/',login_page,name='login'),
+    path('logout/',log_out,name='logout'),
     path('dashboard/',views.dashboard, name='dashboard'),
     path('supplier/',include('supplier.urls')),
     path('product/', include('product.urls')),
+    path('staff/',include('staff.urls')),
     path('order/', include('order.urls')),
 ]

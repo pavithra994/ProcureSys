@@ -1,0 +1,32 @@
+{%  extends 'base/base2.html' %}
+
+<head>
+  <title>Bootstrap Example</title>
+    {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+{% block dashboard-body %}
+
+<center><h3>Supplier Inventory Report</h3></center><br>
+<hr>
+<ul><B>Total Number Of Items : {{ numberOfItems }}</B></ul>
+<hr>
+<ul>Number Of Items in Avalible Status: {{ numberOfAvaliable }}</ul>
+<ul>Total price for available item: {{ net_price_available_item }}</ul>
+    <br><br>
+<ul>Number Of Items in Reserverd Status: {{ numberOfReserved }}</ul>
+<ul>Total price for reserved item: {{ net_price_Reserved_item }}</ul>
+    <br><br>
+<ul>Number Of Items in Out of stock Status: {{ numberOfOutofstock }}</ul>
+<ul>Total price for out of stock item: {{ net_price_outofstock_item }}</ul>
+    <br><br>
+    <b><ul>Total Investment: {{ net_price_item }}</ul></b>
+
+</div>
+{% endblock %}
+
