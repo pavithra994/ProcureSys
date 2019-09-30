@@ -52,7 +52,7 @@ def edit_product(request, pk):
 
         if form.is_valid():
             form.save()
-            return redirect('display_products')
+            return redirect('product_details')
 
     else:
         form = AddProductForm(instance=item)

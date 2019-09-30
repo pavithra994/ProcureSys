@@ -56,56 +56,28 @@ License: You must have a valid license purchased only from themeforest to legall
                             {% endif %}
                         </div>
                     </li>
+                    {% if request.user.is_staff %}
+
                     <li class="nav-item dropdown show-on-hover">
+
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Order Request
+								Order
 							</a>
                         <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                            <div class="sub-dropdown-menu show-on-hover">
-                                <a href="#" class="dropdown-toggle dropdown-item">Application</a>
-                                <div class="dropdown-menu open-right-side">
-                                    <a class="dropdown-item" href="chats.html">Chat</a>
-                                    <a class="dropdown-item" href="calendar.html">Calendar</a>
-                                    <a class="dropdown-item" href="email.html">Email</a>
-                                    <a class="dropdown-item" href="file-manager.html">File Manager</a>
-                                </div>
-                            </div>
-                            <div class="sub-dropdown-menu show-on-hover">
-                                <a href="#" class="dropdown-toggle dropdown-item">Authentication</a>
-                                <div class="dropdown-menu open-right-side">
-                                    <div class="sub-dropdown-menu show-on-hover">
-                                        <a href="#" class="dropdown-toggle dropdown-item">Sign Up</a>
-                                        <div class="dropdown-menu open-right-side">
-                                            <a class="dropdown-item" href="signup.html">Cover</a>
-                                            <a class="dropdown-item" href="signup-simple.html">Simple</a>
-                                        </div>
-                                    </div>
-                                    <div class="sub-dropdown-menu show-on-hover">
-                                        <a href="#" class="dropdown-toggle dropdown-item">Login</a>
-                                        <div class="dropdown-menu open-right-side">
-                                            <a class="dropdown-item" href="login.html">Cover</a>
-                                            <a class="dropdown-item" href="login-simple.html">Simple</a>
-                                        </div>
-                                    </div>
-                                    <div class="sub-dropdown-menu show-on-hover">
-                                        <a href="#" class="dropdown-toggle dropdown-item">Recover Pwd</a>
-                                        <div class="dropdown-menu open-right-side">
-                                            <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-                                            <a class="dropdown-item" href="reset-password.html">Reset Password</a>
-                                        </div>
-                                    </div>
-                                    <a class="dropdown-item" href="lock-screen.html">Lock Screen</a>
-                                    <a class="dropdown-item" href="404.html">Error 404</a>
-                                    <a class="dropdown-item" href="maintenance.html">Maintenance</a>
-                                </div>
-                            </div>
-                            <a class="dropdown-item" href="profile.html">Profile</a>
+                            {% if not request.user.is_admin %}
+                                {% if request.user.staff.is_SiteManager  %}
+                                    <a class="dropdown-item" href="profile.html">Request Order</a>
+
+                                    {% endif %}
+                                {% endif %}
                             <a class="dropdown-item" href="invoice.html">Invoice</a>
                             <a class="dropdown-item" href="gallery.html">Gallery</a>
                             <a class="dropdown-item" href="activity.html">Activity</a>
                             <a class="dropdown-item" href="faq.html">Faq</a>
                         </div>
                     </li>
+                                                    {% endif %}
+
                     <li class="nav-item dropdown show-on-hover">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Payments

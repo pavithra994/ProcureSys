@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from order.forms import *
 from order.models import *
+import logging
 
 def order_placement(request):
     if request.method == 'POST':
@@ -69,11 +70,44 @@ def addTender(request):
     if request.method == 'POST':
         form = AddTender(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('viewPurchase')
+            tender = form.save()
+            logging.info(type(tender))
+            tender.site = request.user.staff
+            tender.save()
+
+            return redirect('addTender')
     else:
         form = AddTender()
     return render(request,'order/addTender.html',{'form':form})
+
+
+def request_order(request):
+    total = 0
+    if request.user.is_staff and not request.user.is_admin:
+        tender_qs = request.user.staff.tender_set.all()
+        if request.method == 'POST':
+            form = AddTender(request.POST)
+            if form.is_valid():
+                tender = form.save()
+                logging.info(type(tender))
+                tender.site = request.user.staff
+                tender.save()
+
+                return redirect('addTender')
+        else:
+            form = AddTender()
+            for tender in tender_qs:
+                total += tender.get_amount()
+
+        context = {
+            'tender_qs' : tender_qs,
+            'form':form,
+            'total':total
+        }
+        return render(request,'order/request.html',context)
+    else:
+        return render(request,"html/404.html",{'error':"Sign in as a supplier"})
+
 
 
 
