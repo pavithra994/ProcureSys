@@ -4,6 +4,7 @@ from django.conf.urls import url
 
 urlpatterns =[
     path('', views.display_order_request, name='display_order_request'),
+    path('invoice/', views.display_invoices, name='display_invoices'),
     path('order_placement/', views.order_placement, name='order_placement'),
     # path('approval_request', views.approval_request, name='approval_request'),
     url(r'^approval_request/(?P<pk>\d+)', views.approval_request, name='approval_request'),

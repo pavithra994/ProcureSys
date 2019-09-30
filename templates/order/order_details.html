@@ -1,3 +1,102 @@
+{% extends 'base/base2.html' %}
+{% load static %}
+{% block dashboard-body %}
+ <!-- Container -->
+            <div class="container">
+
+                <!-- Title -->
+                <div class="hk-pg-header">
+                    <h1 class="h1" style="padding: 10px">Order History</h1>
+                </div>
+                <!-- /Title -->
+
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <section class="hk-sec-wrapper">
+                            <h5 class="hk-sec-title">All Orders</h5>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="table-wrap">
+                                        <table id="datable_1" class="table table-hover w-100 display pb-30">
+                                           <thead>
+                                                <tr>
+                                                  <th scope="col">Id</th>
+                                                  <th scope="col">Product and Quantity</th>
+                                                    <th scope="col">Company Name</th>
+                                                    <th scope="col">Supplier Name</th>
+                                                    <th scope="col">Delivery Address</th>
+                                                  <th scope="col">Amount</th>
+                                                  <th scope="col">Date</th>
+                                                  <th scope="col">Description</th>
+                                                  <th scope="col">Status</th>
+                                                    <th scope="col">Approve</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
+                                                  <th scope="col"></th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                              {% for item in info %}
+                                                <tr>
+                                                  <th scope="row">{{ item.slug }}</th>
+                                                  <td scope="row">{{item.get_tender_values}}</td>
+                                                  <td>{{ item.company_name }}</td>
+                                                <td>{{ item.supplier_name }}</td>
+                                                    <td>{{ item.delivery_address }}</td>
+                                                  <td>{{ item.amount }}</td>
+                                                  <td>{{ item.date }}</td>
+                                                  <td>{{ item.description }}</td>
+                                                  <td>{{ item.Status }}</td>
+                                                  <td>{{ item.approval }}</td>
+                                                    <td><a href="{% url 'EditOrder' item.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
+                                                   <td><a href="{% url 'deleteOrder' item.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+                                                    {% if item.amount > 100000 and item.approval == "Pending" %}
+                                                  <td><a href="{% url 'approval_request' item.pk  %}" onclick="disableBtn()" id="btn" class="btn btn-primary" role="button">Send Request For Approve</a></td>
+                                                         <script>
+                                                            function disableBtn(){
+                                                                {#document.getElementById("btn").classList.add('hide');#}
+                                                                alert("Request was sent.");
+                                                            }
+                                                        </script>
+                                                    {% endif %}
+                                                </tr>
+                                              {% endfor %}
+                                              </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                  <th scope="col">Id</th>
+                                                  <th scope="col">Product and Quantity</th>
+                                                    <th scope="col">Company Name</th>
+                                                    <th scope="col">Supplier Name</th>
+                                                    <th scope="col">Delivery Address</th>
+                                                  <th scope="col">Amount</th>
+                                                  <th scope="col">Date</th>
+                                                  <th scope="col">Description</th>
+                                                  <th scope="col">Status</th>
+                                                    <th scope="col">Approve</th>
+                                                    <th>Edit</th>
+                                                    <th>Delete</th>
+                                                  <th scope="col"></th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <!-- /Row -->
+
+            </div>
+            <!-- /Container -->
+{% endblock %}
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -22,7 +22,13 @@ def display_order_request(request):
             item.Status = "Order Placed"
             item.save()
     context = {'info': info}
+    print(info)
     return render(request, 'order/order_details.html', context)
+
+def display_invoices(request):
+    info = Invoice.objects.all()
+    context = {'info': info}
+    return render(request, 'order/invoice.html', context)
 
 def approval_request(request, pk):
     infor = get_object_or_404(Order, pk=pk)
@@ -44,7 +50,7 @@ def approval_request(request, pk):
     invoice.save()
     context = {'info': info}
     print(infor)
-    return render(request, 'order/order_details.html', context)
+    return redirect('dashboard')
 
 def editOrder(request, pk):
     item = get_object_or_404(Order, pk = pk)
@@ -54,7 +60,7 @@ def editOrder(request, pk):
 
         if form.is_valid():
             form.save()
-            return redirect('viewPurchase')
+            return redirect('dashboard')
 
     else:
         form = OrderPlacementForm(instance=item)
@@ -70,7 +76,7 @@ def addTender(request):
         form = AddTender(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('viewPurchase')
+            return redirect('dashboard')
     else:
         form = AddTender()
     return render(request,'order/addTender.html',{'form':form})

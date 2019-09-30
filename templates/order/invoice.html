@@ -21,23 +21,21 @@
                                         <table id="datable_1" class="table table-hover w-100 display pb-30">
                                             <thead>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Product Type</th>
-                                                    <th>Price Per Product</th>
-                                                    <th>Description</th>
-                                                    <th>Edit</th>
-                                                    <th>Delete</th>
+                                                    <th>Order ID</th>
+                                                    <th>Date</th>
+                                                    <th>Amount</th>
+                                                    <th>Approval State</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {% for p in info %}
                                                     <tr>
-                                                        <td>{{ p.slug }}</td>
-                                                        <td>{{ p.productType }}</td>
-                                                        <td>{{ p.price_per_product }}</td>
-                                                        <td>{{ p.description }}</td>
-                                                        <td><a href="{% url 'edit_product' p.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
-                                                        <td><a href="{% url 'edit_product' p.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+                                                        <td>{{ p.order_id }}</td>
+                                                        <td>{{ p.date }}</td>
+                                                        <td>{{ p.amount_due }}</td>
+                                                        <td>{{ p.approval }}</td>
+                                                        <td><a href="{% url 'edit_product' p.pk %}" class="btn btn-primary btn-sm" role="button">Approve</a> </td>
+                                                        <td><a href="{% url 'edit_product' p.pk %}" class="btn btn-danger btn-sm" role="button">Cancel</a> </td>
                                                     </tr>
                                                 {% endfor %}
 
@@ -46,10 +44,10 @@
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th>ID</th>
-                                                    <th>Product Type</th>
-                                                    <th>Price Per Product</th>
-                                                    <th>Description</th>
+                                                    <th>Order ID</th>
+                                                    <th>Date</th>
+                                                    <th>Amount</th>
+                                                    <th>Approval State</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
