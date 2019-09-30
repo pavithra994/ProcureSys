@@ -6,7 +6,11 @@ from .forms import *
 # Create your views here.
 
 def supplierhome(request):
-    return render(request, 'supplier/supplier_homepage.html')
+    supplier_qs = Supplier.objects.all()
+    context = {
+        "supplier_qs":supplier_qs,
+    }
+    return render(request, 'supplier/supplier_homepage.html', context)
 
 def displaySupplierProducts(request):
     info = SupplierProductInfo.objects.all()

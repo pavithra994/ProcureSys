@@ -6,6 +6,7 @@ $(document).ready(function() {
 	$('#datable_1').DataTable({
 		responsive: true,
 		autoWidth: false,
+		search : {"caseInsensitive" : true},
 		language: { search: "",
 		searchPlaceholder: "Search",
 		sLengthMenu: "_MENU_items"

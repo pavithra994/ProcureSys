@@ -6,7 +6,7 @@
 
                 <!-- Title -->
                 <div class="hk-pg-header">
-                    <h4 class="hk-pg-title">Supplier Management</h4>
+                    <h4 class="hk-pg-title">Staff Management</h4>
                 </div>
                 <!-- /Title -->
 
@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <section class="hk-sec-wrapper">
-                            <h5 class="hk-sec-title">All Suppliers</h5>
+                            <h5 class="hk-sec-title">All Staff Members</h5>
                             <div class="row">
                                 <div class="col-sm">
                                     <div class="table-wrap">
@@ -30,13 +30,13 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {% for supplier in supplier_qs %}
+                                                {% for staff in staff_qs %}
                                                     <tr>
-                                                        <td>{{ supplier.name }}</td>
+                                                        <td>{{ staff.name }}</td>
                                                         <td>
-                                                            Supplier
+                                                            {{ staff.get_position }}
                                                         </td>
-                                                        <td>{{ supplier.user.email }}</td>
+                                                        <td>{{ staff.user.email }}</td>
                                                         <td>61</td>
                                                         <td>2011/04/25</td>
                                                         <td>$320,800</td>
