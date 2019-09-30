@@ -13,6 +13,11 @@ from  product.models import Product
 #         if instance and instance.id:
 #             self.fields['Supplier_Name'].widget.attrs['readonly'] = True
 # #
+class SupplierProductForm1(forms.ModelForm):
+    class Meta:
+        model = SupplierProductInfo
+        fields = ('product','Qty', 'Amount','Status')
+
 
 class SupplierProductForm(forms.Form):
     product = forms.ModelChoiceField(queryset=Product.objects.all(),
