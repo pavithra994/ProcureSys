@@ -125,3 +125,26 @@ def supplieritemalysis(request):
 def get_queryset(Status, Qty):
    if Qty == 0:
     return Status == 'Out_Of_Stock'
+
+
+def add_product(request):
+    if request.user.Supplier:
+        if request.method == 'POST':
+            add_product_form = SupplierProductForm(request.POST)
+            if add_product_form.is_valid():
+                product = add_product_form.cleaned_data['product']
+                Qty = add_product_form.cleaned_data.get('Qty')
+                amount = add_product_form.cleaned_data.get('Amount')
+                user = request.user.supplier
+
+
+                product_obj = SupplierProductInfo.objects.create(product=product,supplier=user,Amount=amount,Qty=Qty)
+                product_obj.save()
+                return redirect('dashboard')
+        else:
+            add_product_form = SupplierProductForm()
+        context = {
+            'form': add_product_form,
+        }
+        return render(request, "supplier/add_product.html", context)
+    return render(request,'html/404.html',{})

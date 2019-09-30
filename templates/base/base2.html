@@ -339,6 +339,9 @@ License: You must have a valid license purchased only from themeforest to legall
                         {% if request.user.is_staff %}
                             <a class="dropdown-item" href="/supplier/add_account"><i class="dropdown-icon zmdi zmdi-account"></i><span>Add Supplier</span></a>
                         {% endif %}
+                        {% if request.user.is_supplier %}
+                            <a class="dropdown-item" href="/supplier/add_product"><i class="dropdown-icon zmdi zmdi-account"></i><span>Add Product</span></a>
+                        {% endif %}
 
                         <div class="dropdown-divider"></div>
                         <div class="sub-dropdown-menu show-on-hover">
