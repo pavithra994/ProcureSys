@@ -164,8 +164,10 @@
                                                     <th>Product</th>
                                                     <th>Description</th>
                                                     <th>price per product</th>
-                                                    <th>Edit</th>
+                                                    {% if request.user.is_staff %}
+                                                        <th>Edit</th>
                                                     <th>Delete</th>
+                                                    {% endif %}
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -176,8 +178,11 @@
                                                             {{ product.description }}
                                                         </td>
                                                         <td>{{ product.price_per_product }}</td>
-                                                        <th><a href="{% url 'edit_product' product.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a></th>
+                                                        {% if request.user.is_staff %}
+                                                         <th><a href="{% url 'edit_product' product.pk %}" class="btn btn-warning btn-sm" role="button">Edit</a></th>
                                                     <th><a href="{% url 'delete_product' product.pk %}" class="btn btn-danger btn-sm" role="button">Delete</a></th>
+                                                    {% endif %}
+
 
 
                                                     </tr>
@@ -191,8 +196,10 @@
                                                     <th>Product</th>
                                                     <th>Description</th>
                                                     <th>price per product</th>
-                                                    <th>Edit</th>
+                                                    {% if request.user.is_staff %}
+                                                        <th>Edit</th>
                                                     <th>Delete</th>
+                                                    {% endif %}
 
                                                 </tr>
                                             </tfoot>
