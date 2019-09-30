@@ -1,6 +1,7 @@
 from django.db import models
 from product.models import ProductOrder, Product
 from supplier.models import SupplierProductInfo
+from staff.models import Staff
 from .utils import unique_slug_generator
 from django.db.models.signals import pre_save
 from django.utils.timezone import datetime
@@ -9,9 +10,13 @@ from django.utils.timezone import datetime
 class Tender(models.Model):
     products = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
     quantity = models.IntegerField()
+    site = models.ForeignKey(Staff,on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return 'Product: {0} Quantity:{1} '.format(self.products, self.quantity)
+
+    def get_amount(self):
+        return  self.products.price_per_product * self.quantity
 
 
 class Order(models.Model):
@@ -46,6 +51,22 @@ class Order(models.Model):
             ret = ret + str(tend.products) + ' : ' + str(tend.quantity) + " , "
         # remove the last ',' and return the value.
         return ret[:-1]
+
+class OrderRequest(models.Model):
+    choices = (
+        ('Pending', 'Pending'),
+        ('Approved', 'Approved'),
+        ('Rejected', 'Rejected')
+    )
+    status = models.CharField(max_length=63, choices=choices, default="Pending")
+    date = models.DateTimeField(auto_now=True)
+    total = models.FloatField(null=True)
+
+
+class Product_OrderRequest(models.Model):
+    order_request = models.ForeignKey(OrderRequest, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
 
 
 def order_presave_receiver(sender, instance, *args, **kwargs):

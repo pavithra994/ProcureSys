@@ -31,3 +31,10 @@ class AddTender(forms.ModelForm):
         model = Tender
         fields =('products','quantity')
 
+class ProductRequestOrderForm(forms.ModelForm):
+    class Meta:
+        model = Product_OrderRequest
+        fields = ['order_request','product','quantity']
+
+TenderFormset = forms.inlineformset_factory(OrderRequest,Product_OrderRequest, form=ProductRequestOrderForm,extra=2)
+

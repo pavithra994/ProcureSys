@@ -1,0 +1,106 @@
+{% extends 'base/base2.html' %}
+{% load static %}
+{% block dashboard-body %}
+ <!-- Container -->
+            <div class="container">
+
+                <!-- Title -->
+                <div class="hk-pg-header">
+                    <h4 class="hk-pg-title">Request Order</h4>
+                </div>
+                <!-- /Title -->
+
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <section class="hk-sec-wrapper">
+                            <div class="row" style="padding: 10px">
+                                <div class="col-sm-12 col-md-6">
+                                    <h5 class="hk-sec-title">Add Tender</h5>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <a class="btn btn-dark" style="float: right" href="/supplier/add_product">button</a>
+                                </div>
+
+
+                            </div>
+                            <div class="row" style="padding: 10px">
+                                <form method="post" class="form-row">
+                                    {% csrf_token %}
+                                    <div class="col-md-6 form-group">
+                                        {{ form.products }}
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        {{ form.quantity }}
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <button style="margin-top: 10px" type="submit" class="btn btn-primary">Add</button>
+                                    </div>
+
+                                </form>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="table-wrap">
+                                        <table class="table table-hover w-100 display pb-30">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Description</th>
+                                                    <th>Unit Price</th>
+                                                    <th>Quantity</th>
+                                                    <th>Amount</th>
+                                                    <th>edit</th>
+                                                    <th>delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for tender in tender_qs %}
+                                                    <tr>
+                                                        <td>{{ tender.products.productType }}</td>
+                                                        <td>
+                                                            {{ tender.products.description }}
+                                                        </td>
+                                                        <td>{{ tender.products.price_per_product }}</td>
+                                                        <td>{{ tender.quantity }}</td>
+                                                        <td>{{ tender.get_amount }}</td>
+                                                        <td><a href="#" class="btn btn-warning btn-sm" role="button">Edit</a> </td>
+                                                        <td><a href="#" class="btn btn-danger btn-sm" role="button">Delete</a> </td>
+                                                    </tr>
+                                                {% endfor %}
+
+
+
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Description</th>
+                                                    <th>Unit Price</th>
+                                                    <th>Quantity</th>
+                                                    <th>Amount</th>
+                                                    <th>edit</th>
+                                                    <th>delete</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="padding: 10px">
+                               <div class="col-sm-12 col-md-6">
+                                   <h5>Total : {{ total }}</h5>
+                               </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <a class="btn btn-dark" style="float: right" href="/supplier/add_product">Proceed Order</a>
+
+                               </div>
+
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
