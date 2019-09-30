@@ -83,7 +83,7 @@ def addTender(request):
 
 def request_order(request):
     total = 0
-    if request.user.is_staff:
+    if request.user.is_staff and not request.user.is_admin:
         tender_qs = request.user.staff.tender_set.all()
         if request.method == 'POST':
             form = AddTender(request.POST)
@@ -105,6 +105,8 @@ def request_order(request):
             'total':total
         }
         return render(request,'order/request.html',context)
+    else:
+        return render(request,"html/404.html",{'error':"Sign in as a supplier"})
 
 
 
