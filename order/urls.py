@@ -5,6 +5,7 @@ from django.conf.urls import url
 urlpatterns =[
     path('', views.display_order_request, name='display_order_request'),
     path('order_placement/', views.order_placement, name='order_placement'),
+    path('proceed/',views.proceed_order,name="proceed_order"),
     # path('approval_request', views.approval_request, name='approval_request'),
     url(r'^approval_request/(?P<pk>\d+)', views.approval_request, name='approval_request'),
     path('request/', views.request_order, name='addTender'),

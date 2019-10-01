@@ -84,7 +84,7 @@ def addTender(request):
 def request_order(request):
     total = 0
     if request.user.is_staff and not request.user.is_admin:
-        tender_qs = request.user.staff.tender_set.all()
+        tender_qs = request.user.staff.tender_set.filter(proceed=False)
         if request.method == 'POST':
             form = AddTender(request.POST)
             if form.is_valid():
@@ -107,6 +107,42 @@ def request_order(request):
         return render(request,'order/request.html',context)
     else:
         return render(request,"html/404.html",{'error':"Sign in as a supplier"})
+
+
+def proceed_order(request):
+    total = 0
+    tender_qs = request.user.staff.tender_set.filter(proceed=False)
+    tender_list = []
+    for tender in tender_qs:
+        total += tender.get_amount()
+
+    if request.method == 'POST':
+        form = OrderPlacementForm(request.POST)
+        if form.is_valid():
+            order = form.save()
+            for tender in list(tender_qs):
+                tender.proceed = True
+                tender.save()
+                tender_list.append(tender)
+            order.product_and_quantity.add(*tender_list)
+            order.amount = total
+            order.site = request.user.staff
+            # if total < 100000.0:
+            #     order.Status = "Approved"
+            # else:
+            #     order.Status = "Pending"
+            order.set_status()
+            order.save()
+            return redirect('dashboard')
+    else:
+        form = OrderPlacementForm()
+    context = {
+        'form': form,
+        'tender_qs': tender_qs
+    }
+    return render(request,'order/order_placement.html',context)
+
+
 
 
 
