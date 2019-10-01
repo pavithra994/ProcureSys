@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'supplier',
     'staff',
     'order',
+    'payments'
 ]
 
 MIDDLEWARE = [

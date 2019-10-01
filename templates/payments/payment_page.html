@@ -1,0 +1,57 @@
+{% extends 'base/base2.html' %}
+{% load static %}
+{% block dashboard-body %}
+
+<!-- Container -->
+            <div class="container-fluid mt-xl-50 mt-sm-30 mt-15">
+				<!-- Row -->
+                <div class="row">
+                    <div class="col-xl-12">
+						<div class="hk-row">
+                                                        <div class="row">
+                                <div class="col-sm">
+                                    <div class="table-wrap">
+                                        <table class="table table-hover w-100 display pb-30">
+                                            <thead>
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <th>Amount</th>
+                                                    <th>Approved By</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for payment in payment_done_qs %}
+                                                    <tr>
+                                                        <th>{{ payment.invoice_set}}</th>
+                                                    <th>{{ payment.amount }}</th>
+                                                    <th>{% if payment.accepted_by %}
+                                                    {{ payment.accepted_by }}
+                                                        {% else %}
+                                                        Auto
+                                                    {% endif %}</th>
+                                                    </tr>
+                                                {% endfor %}
+
+
+
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <th>Amount</th>
+                                                    <th>Approved By</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+						</div>
+					</div>
+                </div>
+                <!-- /Row -->
+			</div>
+            <!-- /Container -->
+
+{% endblock %}
